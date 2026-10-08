@@ -1,0 +1,41 @@
+:root{--bg:#f4f6fb;--surface:#fff;--text:#1e2433;--muted:#6b7385;--border:#e3e7f0;--accent:#5b5bf0;--accent-soft:#ecebff;--ok:#16a34a;--ok-bg:#dcfce7;--err:#dc2626;--err-bg:#fee2e2;--shadow:0 4px 20px rgba(30,36,51,.08)}
+@media(prefers-color-scheme:dark){:root{--bg:#12141c;--surface:#1c2030;--text:#e8eaf2;--muted:#9aa1b5;--border:#2c3248;--accent:#8b8bff;--accent-soft:#2a2d52;--ok:#4ade80;--ok-bg:#12331f;--err:#f87171;--err-bg:#3a1618;--shadow:0 4px 20px rgba(0,0,0,.4)}}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;justify-content:center}
+#app{width:100%;max-width:560px;padding:28px 16px 48px}
+header{text-align:center;margin-bottom:24px}
+h1{font-size:26px;margin:0 0 16px;letter-spacing:-.5px}
+nav{display:inline-flex;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px}
+nav button{border:0;background:none;color:var(--muted);font:600 14px inherit;font-family:inherit;padding:9px 20px;border-radius:999px;cursor:pointer;transition:.2s}
+nav button.active{background:var(--accent);color:#fff}
+main>section{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:24px;box-shadow:var(--shadow)}
+#quiz-header{font-size:13px;color:var(--muted);margin-bottom:20px}
+#quiz-header p{margin:0}
+.progress-bar{height:6px;background:var(--accent-soft);border-radius:99px;margin-top:10px;overflow:hidden}
+#progress{height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .4s}
+#question-text{font-size:20px;font-weight:600;line-height:1.45;margin:0 0 22px}
+#options-container{display:grid;gap:10px}
+.option-btn{font:500 16px inherit;font-family:inherit;color:var(--text);text-align:left;padding:14px 16px;background:var(--surface);border:2px solid var(--border);border-radius:12px;cursor:pointer;transition:.15s}
+.option-btn:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.option-btn:disabled{cursor:default}
+.option-btn.correct{background:var(--ok-bg);border-color:var(--ok)}
+.option-btn.wrong{background:var(--err-bg);border-color:var(--err)}
+#feedback{margin-top:18px;padding:12px 16px;border-radius:12px;font-weight:600;color:#1e2433}
+#next-button,#restart-btn{width:100%;margin-top:16px;padding:14px;font:600 16px inherit;font-family:inherit;background:var(--accent);color:#fff;border:0;border-radius:12px;cursor:pointer;transition:.15s}
+#next-button:hover,#restart-btn:hover{filter:brightness(1.1)}
+.hidden{display:none!important}
+.card-container{perspective:1000px}
+.card{position:relative;height:300px;transform-style:preserve-3d;transition:transform .6s;cursor:pointer}
+.card.flipped{transform:rotateY(180deg)}
+.card-front,.card-back{position:absolute;inset:0;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border-radius:16px;background:var(--accent-soft);border:1px solid var(--border)}
+.card-back{transform:rotateY(180deg);background:var(--surface);border:2px solid var(--accent)}
+.card-front h2{font-size:28px;margin:0;color:var(--accent)}
+.card-back p{font-size:16px;line-height:1.6;margin:0}
+.card-controls{display:flex;gap:10px;margin-top:20px}
+.card-controls button{flex:1;padding:12px;font:600 15px inherit;font-family:inherit;color:var(--text);background:var(--surface);border:2px solid var(--border);border-radius:12px;cursor:pointer;transition:.15s}
+.card-controls button:hover{border-color:var(--accent)}
+#flip-card{background:var(--accent);border-color:var(--accent);color:#fff;order:1}
+#prev-card{order:0}#next-card{order:2}
+#result-screen{text-align:center}
+#result-screen h2{font-size:30px;margin:0}
+#score-text{font-size:20px;margin:16px 0}
